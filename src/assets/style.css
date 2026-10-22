@@ -54,6 +54,10 @@ nav a {
     transition: color 0.2s ease;
 }
 
+nav a i {
+    margin-right: 0.35rem;
+}
+
 nav a:hover {
     color: #7b1fa2;
 }
@@ -70,6 +74,16 @@ nav a:hover {
 .nav-cv-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(123, 31, 162, 0.35);
+}
+
+/* Hamburger button (hidden on desktop) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #5c4166;
+    cursor: pointer;
 }
 
 /* Hero Section */
@@ -313,32 +327,6 @@ nav a:hover {
     color: #ffffff;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #240a2e;
-    color: #bfa8cc;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    header {
-        padding: 1rem 5%;
-    }
-    nav a:not(.nav-cv-btn) {
-        display: none;
-    }
-    .hero-content h1 {
-        font-size: 2.4rem;
-    }
-    .section {
-        padding: 4rem 5%;
-    }
-}
-
 /* About Details Grid & Tags Styling */
 .about-details {
     display: grid;
@@ -414,4 +402,62 @@ footer {
 
 .contact-btn i {
     font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #240a2e;
+    color: #bfa8cc;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive adjustments (keep this at the bottom so it overrides the rules above) */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 5%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 5% 1.5rem;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(193, 168, 209, 0.2);
+        box-shadow: 0 12px 24px rgba(123, 31, 162, 0.08);
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a {
+        margin-left: 0;
+        padding: 0.8rem 0;
+    }
+
+    .nav-cv-btn {
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .section {
+        padding: 4rem 5%;
+    }
 }
